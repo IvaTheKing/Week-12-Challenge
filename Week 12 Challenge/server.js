@@ -12,7 +12,8 @@ const db = mysql.createConnection({
 db.connect((err) => {
     if (err) throw err;
     console.log("You are connected to the employee database");
-});
+    home();
+})
 
 const home = async () => {
     const variable = await inquirer

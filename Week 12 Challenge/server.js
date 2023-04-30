@@ -34,7 +34,7 @@ const home = async () => {
         ]
     })
     .then((variable) => {
-        switch (variable.home) {
+        switch (variable.landing) {
             case "View thy employees":
                 viewEmployees();
                 break;
@@ -66,8 +66,9 @@ const viewEmployees = () => {
     db.query(sql, (err, res) => {
         if (err) throw err;
         console.table(res);
-        home();
+        
     })
+    home();
 }
 
 const recruitEmployee = () => {
@@ -122,7 +123,9 @@ const reselectEmployeeRole = async (employeeId) => {
         db.query("UDPATE employee SET role_id = ? WHERE id = ?", [variable.role_id, variable.employee_id], (err, res) => {
             console.table(res);
         });
+        
     });
+    home()
 
 }
 
@@ -132,8 +135,9 @@ const peruseEmployeeRole = () => {
     db.query(sql, (err, res) => {
         if (err) throw err;
         console.table(res);
-        home();
+        
     });
+    home();
 }
 
 const createNewRole = () => {
@@ -174,6 +178,7 @@ const viewAllEmployees = () => {
     db.query(sql, (err, res) => {
         if (err) throw err;
         console.table(res);
-        home();
+        
     })
+    home();
 }
